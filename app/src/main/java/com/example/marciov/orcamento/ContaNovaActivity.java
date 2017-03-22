@@ -38,6 +38,7 @@ public class ContaNovaActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+        setTitle(R.string.nova_conta);
 
         this.editTextDescricao = (EditText) findViewById(R.id.editText);
         this.editTextValor = (EditText) findViewById(R.id.editText2);
@@ -63,7 +64,7 @@ public class ContaNovaActivity extends AppCompatActivity {
                 this.radioButtonDebito.setChecked(this.conta.getTipo().equals("D"));
                 this.editTextValor.setText(this.conta.getValor().toString());
                 this.editTextSaldo.setText(this.conta.getSaldo().toString());
-                this.checkBoxQuitado.setSelected(this.conta.getQuitado().equals("S"));
+                this.checkBoxQuitado.setChecked(this.conta.getQuitado().equals("S"));
 
                 contaNova = false;
             }
@@ -71,11 +72,23 @@ public class ContaNovaActivity extends AppCompatActivity {
     }
 
     public void salvar(View view) {
+        Double saldo = Double.valueOf(0);
+        try {
+            saldo = new Double(this.editTextSaldo.getText().toString());
+        } catch (Exception e) {
+
+        }
+        Double valor = Double.valueOf(0);
+        try {
+            valor = new Double(this.editTextValor.getText().toString());
+        } catch (Exception e) {
+
+        }
         this.conta.setDescricao(this.editTextDescricao.getText().toString());
-        this.conta.setTipo(this.radioButtonCredito.isSelected() ? "C" : "D");
-        this.conta.setValor(new Double(this.editTextValor.getText().toString()));
-        this.conta.setSaldo(new Double(this.editTextSaldo.getText().toString()));
-        this.conta.setQuitado(this.checkBoxQuitado.isSelected() ? "S": "N");
+        this.conta.setTipo(this.radioButtonCredito.isChecked() ? "C" : "D");
+        this.conta.setValor(valor);
+        this.conta.setSaldo(saldo);
+        this.conta.setQuitado(this.checkBoxQuitado.isChecked() ? "S": "N");
 
         if (contaNova) {
             new ContaDAO(this).insert(conta);
