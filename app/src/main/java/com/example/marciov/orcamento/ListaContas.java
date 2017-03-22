@@ -38,6 +38,8 @@ public class ListaContas extends AppCompatActivity {
 
         this.listView.setAdapter(contaAdapter);
 
+        setTitle(R.string.lista_contas);
+
 
 
     }

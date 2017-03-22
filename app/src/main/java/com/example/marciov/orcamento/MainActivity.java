@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+        setTitle(R.string.versao);
     }
 
     @Override
@@ -59,6 +60,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void novaConta(View v) {
         Intent intent = new Intent(this, ContaNovaActivity.class);
+        startActivity(intent);
+    }
+
+    public void extratoContas(View v) {
+        Intent intent = new Intent(this, ExtratoContas.class);
         startActivity(intent);
     }
 }

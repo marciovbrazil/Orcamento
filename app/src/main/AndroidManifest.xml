@@ -25,7 +25,8 @@
         <activity
             android:name=".ListaContas"
             android:label="@string/title_activity_lista_contas"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".ExtratoContas"></activity>
     </application>
 
 </manifest>
