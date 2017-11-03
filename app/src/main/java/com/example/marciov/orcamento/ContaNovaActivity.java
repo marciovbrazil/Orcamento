@@ -6,6 +6,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.InputType;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -39,6 +40,7 @@ public class ContaNovaActivity extends AppCompatActivity {
         this.radioButtonDebito = (RadioButton) findViewById(R.id.radioButton2);
         this.checkBoxQuitado = (CheckBox) findViewById(R.id.checkBox);
 
+        this.editTextDescricao.setInputType(InputType.TYPE_TEXT_FLAG_CAP_SENTENCES);
         Intent intent = getIntent();
 
         if (intent != null) {

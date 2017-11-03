@@ -8,6 +8,7 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
 
 public class ExtratoContas extends AppCompatActivity {
@@ -73,13 +74,13 @@ public class ExtratoContas extends AppCompatActivity {
                     saldo -= valor;
                 }
                 TextView t2v = new TextView(this);
-                t2v.setText((isCredito ? valor.toString() : "   "));
+                t2v.setText((isCredito ? NumberFormat.getInstance().format(valor) : "   "));
                 t2v.setGravity(Gravity.RIGHT);
                 tv1.setPadding(0,0,30,0);
                 tbrow.addView(t2v);
 
                 TextView t3v = new TextView(this);
-                t3v.setText((isCredito ? "   " :  valor.toString()));
+                t3v.setText((isCredito ? "   " :  NumberFormat.getInstance().format(valor)));
                 t3v.setGravity(Gravity.RIGHT);
                 tbrow.addView(t3v);
 
@@ -95,7 +96,7 @@ public class ExtratoContas extends AppCompatActivity {
         tbrow1.addView(tv4);
 
         TextView tv5 = new TextView(this);
-        tv5.setText(saldo.toString());
+        tv5.setText(NumberFormat.getInstance().format(saldo));
         tv5.setTextSize(20);
         tv5.setGravity(Gravity.RIGHT);
         tbrow1.addView(tv5);
@@ -110,7 +111,7 @@ public class ExtratoContas extends AppCompatActivity {
         tbrow2.addView(tv6);
 
         TextView tv7 = new TextView(this);
-        tv7.setText(ctasPagar.toString());
+        tv7.setText(NumberFormat.getInstance().format(ctasPagar));
         tv7.setGravity(Gravity.RIGHT);
         tv7.setTextColor(Color.RED);
         tbrow2.addView(tv7);
@@ -125,7 +126,7 @@ public class ExtratoContas extends AppCompatActivity {
         tbrow3.addView(tv8);
 
         TextView tv9 = new TextView(this);
-        tv9.setText(ctasReceber.toString());
+        tv9.setText(NumberFormat.getInstance().format(ctasReceber));
         tv9.setGravity(Gravity.RIGHT);
         tbrow3.addView(tv9);
 
@@ -162,7 +163,7 @@ public class ExtratoContas extends AppCompatActivity {
         tbrow4.addView(tv10);
 
         TextView tv11 = new TextView(this);
-        tv11.setText(saldoAtual.toString());
+        tv11.setText(NumberFormat.getInstance().format(saldoAtual));
         if (saldoAtual > 0) {
             tv11.setTextColor(Color.BLUE);
         } else {
@@ -195,7 +196,7 @@ public class ExtratoContas extends AppCompatActivity {
                 tbrowsdo.addView(t1v);
 
                 TextView t2v = new TextView(this);
-                t2v.setText(saldoContas.toString());
+                t2v.setText(NumberFormat.getInstance().format(saldoContas));
                 t2v.setGravity(Gravity.RIGHT);
                 tbrowsdo.addView(t2v);
 
